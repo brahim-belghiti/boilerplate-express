@@ -1,15 +1,17 @@
-let express = require('express');
-let app = express();
-console.log("Hello World");
-// app.get("/", function(req, res) {
-//   res.send('Hello Express');
-// }
-// )
-const filePath = __dirname + "/views/index.html";
-app.get("/", function (req, res) {
-  res.sendFile(filePath);
+const express = require("express");
+const app = express();
+const path = require("path");
+
+const indexPath = path.join(__dirname, "views", "index.html");
+const assetsPath = path.join(__dirname, "public");
+
+app.get("/", (req, res) => {
+  res.sendFile(indexPath);
 });
 
+// Serving static files from the 'public' directory
+app.use("/public", express.static(assetsPath));
+module.exports = app;
 
 
 
