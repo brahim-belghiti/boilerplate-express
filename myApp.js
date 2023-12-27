@@ -9,6 +9,12 @@ app.get("/", (req, res) => {
   res.sendFile(indexPath);
 });
 
+app.get("/json", (req, res)=>{
+   res.json({
+    message: "Hello json"
+   })
+})
+
 // Serving static files from the 'public' directory
 app.use("/public", express.static(assetsPath));
 module.exports = app;
