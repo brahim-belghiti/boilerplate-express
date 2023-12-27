@@ -4,12 +4,15 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "cookie-parser": "^1.4.3",
-    "dotenv": "^16.0.1",
     "express": "^4.18.2",
     "fcc-express-bground": "https://github.com/freeCodeCamp/fcc-express-bground-pkg.git"
   },
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
+  },
+  "devDependencies": {
+    "dotenv": "^16.3.1",
+    "nodemon": "^3.0.2"
   }
 }

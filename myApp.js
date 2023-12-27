@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -10,9 +11,19 @@ app.get("/", (req, res) => {
 });
 
 app.get("/json", (req, res)=>{
-   res.json({
-    message: "Hello json"
-   })
+  switch (process.env.MESSAGE_STYLE) {
+    case "uppercase":
+    res.json({
+      message: "HELLO JSON"
+     })
+    break;
+    default:
+      res.json({
+        message: "Hello json"
+       })
+  }
+    
+  
 })
 
 // Serving static files from the 'public' directory
