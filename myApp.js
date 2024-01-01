@@ -39,6 +39,11 @@ app.get('/now', function (req, res, next) {
   res.json({time:req.time});
 });
 
+app.get('/:word/echo', (req, res) => {
+  const word = req.params.word;
+  res.json({ echo: word });
+});
+
 // Serving static files from the 'public' directory
 app.use("/public", express.static(assetsPath));
 module.exports = app;
