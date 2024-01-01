@@ -44,6 +44,12 @@ app.get('/:word/echo', (req, res) => {
   res.json({ echo: word });
 });
 
+
+app.route('/name').get((req, res)=>{
+  const { first, last } = req.query;
+  const fullName = `${first} ${last}`;
+  res.json({ name: fullName });
+}).post((req,res)=>{})
 // Serving static files from the 'public' directory
 app.use("/public", express.static(assetsPath));
 module.exports = app;
