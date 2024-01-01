@@ -1,4 +1,5 @@
 require('dotenv').config()
+const bodyParser = require('body-parser');
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -6,7 +7,7 @@ const path = require("path");
 const indexPath = path.join(__dirname, "views", "index.html");
 const assetsPath = path.join(__dirname, "public");
 
-
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use((req,res,next)=>{
   console.log(`${req.method} ${req.path} - ${req.ip}`);
   next();
