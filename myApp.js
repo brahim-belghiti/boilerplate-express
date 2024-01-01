@@ -50,7 +50,11 @@ app.route('/name').get((req, res)=>{
   const { first, last } = req.query;
   const fullName = `${first} ${last}`;
   res.json({ name: fullName });
-}).post((req,res)=>{})
+}).post((req,res)=>{
+  const { first, last } = req.body;
+  const fullName = `${first} ${last}`;
+  res.json({ name: fullName });
+})
 // Serving static files from the 'public' directory
 app.use("/public", express.static(assetsPath));
 module.exports = app;
